@@ -21,10 +21,16 @@
         return Nome;
     }
 
-    public override string ToString()
+    public override string? ToString()
     {
-        return "Nome: " + Nome + "\nIdade: " + Idade + "\nSexo: " + Sexo;
+        return base.ToString();
     }
+
+    //public override string ToString()
+    //{
+    //    return "Nome: " + Nome + "\nIdade: " + Idade + "\nSexo: " + Sexo;
+    //}
+
 
 
 
