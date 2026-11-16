@@ -5,21 +5,26 @@
     public int AnoFabricante;
     public int AnoModelo;
     public double PreçoVenda;
-    //public double IPVA;
+    public Motor MotorCarro;
 
-    public Carro(string fabricante, string modelo, int anoFabricante, int anoModelo, double preçoVenda)
+    public Carro()
+    {
+    }
+
+    public Carro(string fabricante, string modelo, int anoFabricante, int anoModelo, double preçoVenda, Motor motorCarro)
     {
         Fabricante = fabricante;
         Modelo = modelo;
         AnoFabricante = anoFabricante;
         AnoModelo = anoModelo;
         PreçoVenda = preçoVenda;
+        MotorCarro = motorCarro;
     }
 
     //TRATAMENTO DE MODELO DE ANO
     private bool ValidarAnoModelo(int ano)
     {
-        if(ano == AnoFabricante || ano == AnoFabricante + 1)
+        if (ano == AnoFabricante || ano == AnoFabricante + 1)
         {
             return true;
         }
@@ -29,17 +34,22 @@
         }
     }
 
-    /*
-    private setIPVA(double preco)
-    {
 
-    }
-    */
-    
-    public Carro()
+    public double CalcularIPVA()
     {
+        if (2026 - AnoModelo < 20)
+        {
+            return PreçoVenda * 0.04;
+        }
+        else
+        {
+            return 0.00;
+        }
     }
 
+
+
+    //SET E GET
     public void setFabricante(string fabricante)
     {
         Fabricante = fabricante;
@@ -94,10 +104,15 @@
         return PreçoVenda;
     }
 
-    
+
     public override string? ToString()
     {
-        return "fabricante: " + Fabricante + " modelo: " + Modelo + " anoFabricante: " + AnoFabricante + " anoModelo: " + AnoModelo + " preçoVenda: " + PreçoVenda;
+        return "fabricante: " + Fabricante + "\n" +
+               "modelo: " + Modelo + "\n" +
+               "anoFabricante: " + AnoFabricante + "\n" +
+               "anoModelo: " + AnoModelo + "\n" +
+               "preçoVenda: " + PreçoVenda + "\n" +
+               "Motor: " + MotorCarro;
     }
 }
 

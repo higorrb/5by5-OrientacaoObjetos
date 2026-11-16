@@ -25,10 +25,21 @@ Carro CadastrarCarro()
     int anomod = int.Parse(Console.ReadLine());
     Console.WriteLine("Informe o preco: ");
     double preco = double.Parse(Console.ReadLine());
+    Console.WriteLine("Informe o tipo de combustivel: ");
+    string tipocomb = Console.ReadLine();
+    Console.WriteLine("Informe a cilindrada: ");
+    int cilind = int.Parse(Console.ReadLine());
+    Console.WriteLine("Informe a potencia: ");
+    float potencia = float.Parse(Console.ReadLine());
+
+    Motor m = new();
+    m.setTipoComustivel(tipocomb);
+    m.setCilindrada(cilind);
+    m.setPotencia(potencia);
 
     //Carro c = new();
 
-    Carro c = new(fab,mod,anofab,anomod,preco);
+    Carro c = new(fab, mod, anofab, anomod, preco, m);
 
     //c.setFabricante(fab);
     //c.setModelo(mod);
@@ -52,14 +63,17 @@ void MostrarCarro()
 {
     for (int i = 0; i < vetorCarro.Length; i++)
     {
-        Console.WriteLine(vetorCarro[i].ToString()); 
+        Console.WriteLine(vetorCarro[i].ToString());
         //NAO PRECISA USAR O ToString(), pois o Console.WriteLine ja mostra uma string
         //e como sobrescrevemos o metodo ToString() todo uso desse metodo para retornar os Objetos da Classe Carro ja sai formatado como feito no metodo da Classe
+        Console.Write("IPVA: ");
+        Console.WriteLine(vetorCarro[i].CalcularIPVA() + "\n");
     }
 }
 
 AdicionarCarros();
 MostrarCarro ();
+
 
 
 

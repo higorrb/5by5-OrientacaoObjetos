@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="conceitos/conceitos.csproj" />
   <Project Path="Exercicio1-carros/Exercicio1-carros.csproj" Id="5b2edd1d-e956-4b2c-829c-6602a395e74b" />
+  <Project Path="Exercicio2-contabancaria/Exercicio2-contabancaria.csproj" Id="a8865fa2-9149-49db-938a-a0b5fc5666e7" />
 </Solution>
