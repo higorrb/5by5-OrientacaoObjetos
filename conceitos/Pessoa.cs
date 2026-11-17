@@ -12,6 +12,12 @@
         Date = DateOnly.FromDateTime(DateTime.Now);
     }
 
+    public override string ToString()
+    {
+        return $"Nome: {Name}" +
+               $"\nData de Criação: {Date}" +
+               $"\nTelefone: {Phone}" ;
+    }
 
 
     /*

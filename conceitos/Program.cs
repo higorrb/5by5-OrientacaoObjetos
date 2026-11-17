@@ -1,6 +1,9 @@
 ﻿PessoaFisica pf = new("12312312", "higor");
 
 Pessoa p = new PessoaJuridica("321", "5by5"); //GENERALIZANDO, usando o construtor de PessoaJuridica, mas apenas usando as propriedades de Pessoa
+
+Console.WriteLine(pf);
+
 Console.ReadKey();
 
 

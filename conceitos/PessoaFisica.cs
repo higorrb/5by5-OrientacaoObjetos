@@ -14,15 +14,16 @@ public class PessoaFisica : Pessoa
         CPF = cpf;
     }
 
-
-    public void TransformarNome()
-    {
-        Name = Name.ToUpper();
-    } 
-
     public string getCPF()
     {
         return CPF;
+    }
+
+    public override string ToString()
+    {
+        return base.ToString() + "\nCPF: " + CPF + 
+                                 "\nCelular: " + Mobile + 
+                                 "\nSexo: " + Gender;
     }
 }
 
