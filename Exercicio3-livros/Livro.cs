@@ -12,16 +12,7 @@ public class Livro
         setPaginas(paginas);
     }
 
-    public void setTitulo(string titulo)
-    {
-        Titulo = titulo;
-    }
-
-    public void setAutor(string autor)
-    {
-        Autor = autor;
-    }
-
+  
     public void setPaginas(int paginas)
     {
         if (paginas > 0)
