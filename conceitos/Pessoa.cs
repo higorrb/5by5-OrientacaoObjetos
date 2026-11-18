@@ -1,9 +1,26 @@
-﻿public class Pessoa
+﻿public abstract class Pessoa
 {
-    public string Nome;
-    private int Idade;
-    private char Sexo;
+    public string Name { get; set; } //prop -> get e set implicito - tornando uma propriedade
+    public string Address { get; set; }
+    public DateOnly Date { get; set; }
+    public string Phone { get; set; }
 
+    
+    protected Pessoa(string name)
+    {
+        Name = name;
+        Date = DateOnly.FromDateTime(DateTime.Now);
+    }
+
+    public override string ToString()
+    {
+        return $"Nome: {Name}" +
+               $"\nData de Criação: {Date}" +
+               $"\nTelefone: {Phone}" ;
+    }
+
+
+    /*
     public Pessoa(string nome, int idade, char sexo)
     {
         Nome = nome;
@@ -30,7 +47,7 @@
     //{
     //    return "Nome: " + Nome + "\nIdade: " + Idade + "\nSexo: " + Sexo;
     //}
-
+    */
 
 
 
