@@ -1,4 +1,4 @@
-﻿internal class ContaSalario : ContaBancaria
+﻿public class ContaSalario : ContaBancaria
 {
 
 }

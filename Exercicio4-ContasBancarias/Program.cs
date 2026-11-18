@@ -9,12 +9,19 @@ ContaSalario[] vetorContaSalario = new ContaSalario[quantidadeContas];
 
 ContaCorrente AdicionarContaCorrente()
 {
-    ContaCorrente contaCorrente = new();
+    
     Console.WriteLine("Digite o numero da conta: ");
-    contaCorrente.Numero = Console.ReadLine();
+    int numero = int.Parse(Console.ReadLine());
     Console.WriteLine("Digite o saldo da conta: ");
-    contaCorrente.Saldo = double.Parse(Console.ReadLine());
-    Console.WriteLine($"o Limite da sua conta: {contaCorrente.DeterminarLimite()}");
+    double saldo = double.Parse(Console.ReadLine());
+    double limite = saldo * 3;
+
+    ContaCorrente contaCorrente = new(limite)
+    {
+        Numero = numero,
+        Saldo = saldo
+    };
+
 
     return contaCorrente;
 }
@@ -23,7 +30,7 @@ ContaPolpança AdicionarContaPolpança()
 {
     ContaPolpança contaPolpança = new();
     Console.WriteLine("Digite o numero da conta: ");
-    contaPolpança.Numero = Console.ReadLine();
+    contaPolpança.Numero = int.Parse(Console.ReadLine());
     Console.WriteLine("Digite o saldo da conta: ");
     contaPolpança.Saldo = double.Parse(Console.ReadLine());
 
@@ -34,7 +41,7 @@ ContaSalario AdicionarContaSalario()
 {
     ContaSalario contaSalario = new();
     Console.WriteLine("Digite o numero da conta: ");
-    contaSalario.Numero = Console.ReadLine();
+    contaSalario.Numero = int.Parse(Console.ReadLine());
     Console.WriteLine("Digite o saldo da conta: ");
     contaSalario.Saldo = double.Parse(Console.ReadLine());
 
@@ -114,13 +121,15 @@ void MostrarContas()
         Console.WriteLine($"Saldo: R$ {vetorContaSalario[i].Saldo:F2}");
         Console.WriteLine("-----------------------");
     }
+    Console.WriteLine("\n\n");
 }
 
+//EXECUÇÃO
 CriarContas();
 
 vetorContaCorrente[0].Depositar(500);
 MostrarContas();
-vetorContaCorrente[0].Sacar(500);
+vetorContaCorrente[0].Sacar(1000);
 MostrarContas();
 vetorContaPolpança[0].Depositar(350);
 MostrarContas();

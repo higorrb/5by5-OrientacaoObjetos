@@ -1,25 +1,36 @@
-﻿internal class ContaCorrente : ContaBancaria
+﻿public class ContaCorrente : ContaBancaria
 {
-    public double Limite {  get; set; }
+    public double Limite; //deixar ela como ATRIBUTO pois ela vai ser usada somente na classse
 
+    public ContaCorrente(double limite)
+    {
+        Limite = limite;
+    }
 
-    public override double Sacar(double valor)
+    public override bool Sacar(double valor)
     {
         if (valor > 0 && Saldo + Limite >= valor )
         {
             Saldo -= valor;
             DeterminarLimite();
+            return true;
         }
-        return Saldo;
+        return false;
     }
-    public override double Depositar(double valor)
+
+    public override bool Depositar(double valor)
     {
-        if (valor > 0)
+        if (base.Depositar(valor)) //TAMBEM posso usar o base para pegar o metdo base e acrescentar a funcao de limite
         {
-            Saldo += valor;
             DeterminarLimite();
+            return true;
         }
-        return Saldo;
+        return false;
+    }
+
+    public override bool Pagar(double valor)
+    {
+        return Sacar(valor);
     }
 
     public double DeterminarLimite()

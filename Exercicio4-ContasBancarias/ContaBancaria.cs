@@ -1,27 +1,33 @@
 ﻿public abstract class ContaBancaria
 {
-    public string Numero { get; set; }
+    public int Numero { get; set; }
     public double Saldo { get; set; }
 
-    public virtual double Depositar(double valor)
+    public virtual bool Depositar(double valor)
     {
-        if (valor > 0) 
+        if (valor > 0)
+        {
             Saldo += valor;
-        return Saldo;
+            return true;
+        }
+       
+        return false;
     }
 
-    public virtual double Sacar(double valor)
+    public virtual bool Sacar(double valor)
     {
         if (valor > 0 && Saldo >= valor)
+        {
             Saldo -= valor;
-        return Saldo;
+            return true;
+        }
+        
+        return false;
     }
 
-    public double Pagar(double valor)
+    public virtual bool Pagar(double valor)
     {
-        if (valor > 0 && Saldo >= valor)
-            Saldo -= valor;
-        return Saldo;
+        return Sacar(valor);    
     }
 
     public void Transferir(ContaBancaria destino, double valor)

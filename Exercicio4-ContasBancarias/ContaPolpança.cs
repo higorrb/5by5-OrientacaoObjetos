@@ -1,13 +1,13 @@
-﻿internal class ContaPolpança : ContaBancaria
+﻿public class ContaPolpança : ContaBancaria
 {
-    public double Sacar(double valor)
+    public override bool Sacar(double valor)
     {
-        double total = valor + valor * 0.05;
-        if (valor > 0 && Saldo >= total)
+        if (valor > 0 && Saldo >= valor * 1.05)
         {
-            Saldo -= total;
+            Saldo -= valor* 1.05;
+            return true;
         }
-        return Saldo;
+        return false;
     }
 
 }
